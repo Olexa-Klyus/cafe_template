@@ -6,6 +6,13 @@ class Category(models.Model):
     position = models.SmallIntegerField(unique=True)
     is_visible = models.BooleanField(default=True)
 
+    # щоб в адмінці відображалася назва категорії, потрібно реалізувати метод str
+    def __str__(self):
+        return f'{self.title}'
+
+    class Meta:
+        ordering = ('position',)
+
 
 class Dish(models.Model):
     title = models.CharField(max_length=50, unique=True, db_index=True)
@@ -17,3 +24,6 @@ class Dish(models.Model):
     photo = models.ImageField(blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_special = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.title}'
