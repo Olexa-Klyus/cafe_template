@@ -15,6 +15,7 @@ class Category(models.Model):
         ordering = ('position',)
 
 
+
 class Dish(models.Model):
     title = models.CharField(max_length=50, unique=True, db_index=True)
     position = models.SmallIntegerField()
