@@ -10,6 +10,7 @@ class Category(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    # щоб в адмінці записи сортувалися, потрібно прописати списком або кортежем атрибути за якими сортуємо
     class Meta:
         ordering = ('position',)
 
@@ -27,3 +28,6 @@ class Dish(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    class Meta:
+        ordering = ('category', 'position')

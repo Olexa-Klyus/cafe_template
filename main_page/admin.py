@@ -17,3 +17,24 @@ class DishAdmin(admin.TabularInline):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [DishAdmin]
+
+    # виводить в рядки в адмінці наступні поля
+    list_display = ['title', 'position', 'is_visible']
+
+    # дозволяє редагувати прямо в рядку наступні поля
+    list_editable = ['position', 'is_visible']
+
+
+# можна додати в адмінку таблицю dish ще раз як просту таблицю, а не підпорядковану
+@admin.register(Dish)
+class DishAllAdmin(admin.ModelAdmin):
+    model = Dish
+
+    list_display = ['title', 'position', 'is_visible', 'ingredients', 'desc', 'price', 'photo']
+    list_editable = ['position', 'is_visible', 'price']
+
+    # можна додати панель фільтрів
+    list_filter = ['category', 'is_visible']
+
+    #якщо таблиця довга, розбити її на сторінки
+    list_per_page = 2
