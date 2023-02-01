@@ -22,7 +22,11 @@ class Dish(models.Model):
     ingredients = models.CharField(max_length=255)
     desc = models.TextField(max_length=500, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    photo = models.ImageField(blank=True)
+
+    # upload_to присвоїти стрічку (назву папки) або результат виконання
+    # функції, який повертає стрічку - додає підпапку, в якій будуть зберігатися фотки,
+    # можна ще додати такий шаблон 'dishes/%y_%m_%d'- тоді буде створюватися папка, назва якої це поточна дата
+    photo = models.ImageField(upload_to='dishes', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     is_special = models.BooleanField(default=False)
 

@@ -31,7 +31,7 @@ class DishAllAdmin(admin.ModelAdmin):
     model = Dish
 
     list_display = ['title', 'position', 'is_visible', 'ingredients', 'desc', 'price', 'photo']
-    list_editable = ['position', 'is_visible', 'price']
+    list_editable  = ['position', 'is_visible', 'price']
 
     # можна додати панель фільтрів
     list_filter = ['category', 'is_visible']

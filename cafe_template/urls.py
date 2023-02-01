@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+# прописуємо ці налаштування щоб на локальному сервері в режимі розробника бачити зображення з медіа
+# на сервері працювати цей код не буде, сервер і так добре працює з динамічними зображеннями
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
