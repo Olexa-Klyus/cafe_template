@@ -37,4 +37,4 @@ class DishAllAdmin(admin.ModelAdmin):
     list_filter = ['category', 'is_visible']
 
     #якщо таблиця довга, розбити її на сторінки
-    list_per_page = 2
+    #list_per_page = 2
